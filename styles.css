@@ -50,7 +50,7 @@ pre {
 ul {
   padding: 0;
   margin: 0;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 li {
@@ -60,4 +60,38 @@ li {
   border-radius: 0.25rem;
   margin-bottom: 1rem;
   font-weight: 600;
+}
+
+.mainNavigation {
+  background-color: rgb(7, 86, 4);
+}
+
+.mainNavigation h1 {
+  display: inline-block;
+  color: white;
+  font-size: x-large;
+  vertical-align: top;
+  margin: 12px;
+}
+
+.logoRow {
+  margin: 0 0 20px 0;
+}
+
+ul.mainNavigationList > li {
+  display: inline-block;
+  padding: 10px;
+  background-color: transparent;
+}
+
+ul.mainNavigationList > li:first-of-type {
+  padding-left: 0;
+}
+
+ul.mainNavigationList > li a {
+  padding: 10px;
+  border-radius: 2px;
+  text-decoration: none;
+  background-color: #51f7fb;
+  color: black;
 }

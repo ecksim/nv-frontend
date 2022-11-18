@@ -9,6 +9,7 @@
     "lint:css": "stylelint './src/**/*.js'"
   },
   "dependencies": {
+    "babel": "^6.23.0",
     "next": "latest",
     "next-sanity": "^1.0.9",
     "react": "18.2.0",
@@ -16,7 +17,8 @@
     "styled-components": "^5.3.6",
     "stylelint-config-recommended": "^9.0.0",
     "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.10.0"
+    "stylelint-processor-styled-components": "^1.10.0",
+    "weak-key": "^1.0.2"
   },
   "license": "MIT",
   "keywords": [],

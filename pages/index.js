@@ -1,59 +1,30 @@
-import { createClient } from "next-sanity";
+import sanityClient from "../client";
 
 // components
-import HeroImage from "../src/components/heroImage/HeroImage";
+import HeroImage from "../src/components/HeroImage/HeroImage";
+import Navi from "../src/components/Navi/Navi";
 
-export default function IndexPage({ animals }) {
+export default function IndexPage({ animals, navigation }) {
   return (
     <>
-      <header>
-        <h1>Narrenverein Bodemännle</h1>
-      </header>
-
+      <Navi naviItems={navigation} />
       <main>
         <HeroImage></HeroImage>
-        <h2>animals</h2>
-        {animals.length > 0 && (
-          <ul>
-            {animals.map((animal) => (
-              <li key={animal._id}>{animal?.name}</li>
-            ))}
-          </ul>
-        )}
-        {!animals.length > 0 && <p>No animals to show</p>}
-        {animals.length > 0 && (
-          <div>
-            <h1>data</h1>
-            <pre>{JSON.stringify(animals, null, 2)}</pre>
-          </div>
-        )}
-        {!animals.length > 0 && (
-          <div>
-            <div>¯\_(ツ)_/¯</div>
-            <p>
-              Your data will show up here when you've configured everything
-              correctly
-            </p>
-          </div>
-        )}
       </main>
     </>
   );
 }
 
-const client = createClient({
-  projectId: "hxf7pr1f",
-  dataset: "production",
-  apiVersion: "2022-11-13",
-  useCdn: false
-});
+
 
 export async function getStaticProps() {
-  const animals = await client.fetch(`*[_type == "animal"]`);
+  const animals = await sanityClient.fetch(`*[_type == "animal"]`);
+  const navigation = await sanityClient.fetch(`*[_type == "NaviEntry"]`);
 
   return {
     props: {
-      animals
+      animals,
+      navigation,
     }
   };
 }
