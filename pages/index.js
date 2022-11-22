@@ -1,30 +1,26 @@
-import sanityClient from "../client";
+import Link from "next/link";
+import FullCalendar from "@fullcalendar/react";
+// The import order DOES MATTER here. If you change it, you'll get an error!
+import interactionPlugin from "@fullcalendar/interaction";
+import timeGridPlugin from "@fullcalendar/timegrid";
 
 // components
 import HeroImage from "../src/components/HeroImage/HeroImage";
-import Navi from "../src/components/Navi/Navi";
 
-export default function IndexPage({ animals, navigation }) {
+export default function IndexPage() {
   return (
     <>
-      <Navi naviItems={navigation} />
       <main>
+        <h1 className="headline">Willkommen bei den Bodemännle Hattenweiler</h1>
         <HeroImage></HeroImage>
+        <section>
+          <p>
+            Die fünfte Jahreszeit steht in den Startlöchern und wir freuen uns dieses Mal wieder gemeinsam mit Euch eine schöne Fasnet zu haben.
+            Neben unseren Umzügen wird auch wieder der Westernball durch uns veranstaltet im Dorfgemeinschaftshaus in Hattenweiler stattfinden.
+            Alle Veranstaltungen im Überblick findest du hier: <Link href={"/kalender"} title="kalender" >Kalender</Link>
+          </p>
+        </section>
       </main>
     </>
   );
-}
-
-
-
-export async function getStaticProps() {
-  const animals = await sanityClient.fetch(`*[_type == "animal"]`);
-  const navigation = await sanityClient.fetch(`*[_type == "NaviEntry"]`);
-
-  return {
-    props: {
-      animals,
-      navigation,
-    }
-  };
 }
