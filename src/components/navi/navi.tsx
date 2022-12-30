@@ -14,7 +14,6 @@ type Props = { naviItems: naviItem[] };
 export default function Navi({ naviItems }: Props) {
   const sortedNavi = naviItems.sort((a, b) => a.position - b.position);
   const currentBreakpoint = breakpoint();
-  console.log(currentBreakpoint);
   const navigationItems = (
     <ul className="mainNavigationList">
       {sortedNavi.map((item) => (
