@@ -5,27 +5,28 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import listPlugin from "@fullcalendar/list";
 // import { useRef } from "react";
 
-type Props = {};
+type Props = { events: any[] };
 
-export default function Calendar({}: Props) {
+export default function Calendar({ events }: Props) {
   //   const calendarRef = useRef(null);
   return (
     <FullCalendar
       locale="de"
       allDaySlot={false}
       events={[
+        ...events,
         {
-          title: "Elfte Elfte",
-          start: "2022-11-11T11:11:11",
-          end: "2022-11-11T11:11:12 ",
+          title: "Silvester Heiligenberg",
+          start: "2022-12-31T22:30:00",
+          end: "2023-01-01T04:30:00 ",
           extendedProps: {
             department: "BioChemistry",
           },
           description: "Lecture",
         },
         {
-          id: "a",
-          title: "my event",
+          id: "Ich hätt gern ne million",
+          title: "Ich hätt gern ne million",
           start: "2022-11-11",
         },
       ]}
