@@ -74,6 +74,105 @@ li {
   margin: 12px;
 }
 
+.mainNavigation .hamburger {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 11;
+}
+
+.mainNavigation .hamburger .hamburgerBar {
+  background-color: #51f7fb;
+  transition: background-color 0.5s;
+  position: relative;
+  width: 90%;
+  height: 6px;
+  border-radius: 2px;
+  margin: 6px auto;
+  transition: transform 0.5s;
+}
+
+/* TODO make this animation more readable */
+
+.menuAnimation-enter {
+  opacity: 0;
+}
+.menuAnimation-enter-active {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: white;
+  opacity: 1;
+  transition: opacity 500ms;
+}
+
+.menuAnimation-enter-done {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: white;
+}
+.menuAnimation-exit {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: white;
+  opacity: 1;
+}
+.menuAnimation-exit-active {
+  opacity: 0;
+  transition: opacity 500ms;
+}
+
+.menuAnimation-exit-done {
+  display: none;
+}
+
+.mainNavigation .hamburger.menuIsOpen .hamburgerBar {
+  background-color: rgb(7, 86, 4);
+  transition: background-color 0.5s;
+}
+
+.mainNavigation .hamburger.menuIsOpen .hamburgerBar:first-of-type {
+  transform: rotate(45deg) translate(1px, 1rem);
+  transition: transform 0.5s;
+}
+
+.mainNavigation .hamburger.menuIsOpen .hamburgerBar:last-of-type {
+  transform: rotate(-45deg) translate(1px, -1rem);
+  transition: transform 0.5s;
+}
+
+.mainNavigation .hamburger.menuIsOpen .hamburgerBar:nth-of-type(2) {
+  transform: scale(0) rotate(900deg);
+  transition: transform 0.5s;
+}
+
+.mobileNav {
+  position: relative;
+  margin-top: 8rem;
+}
+
+.mobileNavItem {
+  text-align: center;
+}
+
+.mobileNavItem a {
+  text-decoration: none;
+  color: rgb(7, 86, 4);
+}
+
 .logoRow {
   margin: 0 0 20px 0;
 }

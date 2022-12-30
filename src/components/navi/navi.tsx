@@ -1,25 +1,34 @@
-import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 import key from "weak-key";
 
-type Props = { naviItems: naviItem[] };
+// components
+import Image from "next/image";
+import Link from "next/link";
+import HamburgerMenu from "./HamburgerMenu";
 
-interface naviItem {
-  path: string;
-  position: number;
-  title: string;
-  _createdAt: string; //or date?
-  _id: string;
-  _rev: string;
-  _type: string;
-  _updatedAt: string; //or date?
-}
+// utils
+import breakpoint from "./../../utils/breakpoint";
+
+type Props = { naviItems: naviItem[] };
 
 export default function Navi({ naviItems }: Props) {
   const sortedNavi = naviItems.sort((a, b) => a.position - b.position);
+  const currentBreakpoint = breakpoint();
+  console.log(currentBreakpoint);
+  const navigationItems = (
+    <ul className="mainNavigationList">
+      {sortedNavi.map((item) => (
+        <li key={key(item)}>
+          <Link href={item.path}>{item.title}</Link>
+        </li>
+      ))}
+    </ul>
+  );
   return (
     <header className="mainNavigation">
+      {currentBreakpoint === "isMobile" && (
+        <HamburgerMenu navItems={sortedNavi} />
+      )}
       <section className="logoRow">
         <Image
           alt="Wappen des NV Bodemännle"
@@ -29,13 +38,7 @@ export default function Navi({ naviItems }: Props) {
         />
         <h1>Narrenverein Bodemännle</h1>
       </section>
-      <ul className="mainNavigationList">
-        {sortedNavi.map((item) => (
-          <li key={key(item)}>
-            <Link href={item.path}>{item.title}</Link>
-          </li>
-        ))}
-      </ul>
+      {currentBreakpoint !== "isMobile" && navigationItems}
     </header>
   );
 }
