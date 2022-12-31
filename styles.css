@@ -241,3 +241,16 @@ ul.mainNavigationList > li a {
   right: 1rem;
   cursor: pointer;
 }
+
+@media (max-width: 576px) {
+  .fc-header-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .fc-toolbar-chunk:last-of-type {
+    margin-top: 1rem;
+    font-size: 90%;
+    display: flex;
+  }
+}
