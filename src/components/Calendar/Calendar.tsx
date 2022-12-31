@@ -82,8 +82,12 @@ export default function Calendar({ events }: Props) {
         //   eventMouseLeave={() => alert("Tooltip ausblenden")}
         headerToolbar={{
           start: "title",
-          center: "listMonth dayGridMonth",
-          end: "today prev,next",
+          center:
+            currentBreakpoint === "isMobile" ? "" : "listMonth dayGridMonth",
+          end:
+            currentBreakpoint === "isMobile"
+              ? "listMonth dayGridMonth today prev,next"
+              : "today prev,next",
         }}
         buttonText={{
           today: "Heute",
