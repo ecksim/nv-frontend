@@ -36,12 +36,9 @@ export default function HamburgerMenu({ navItems }: Props) {
                   <li
                     className="mobileNavItem"
                     onClick={() => setMenuIsOpen(false)}
+                    key={key(item)}
                   >
-                    <label
-                      key={key(item)}
-                      htmlFor="hamburger"
-                      className="mobileNavItemLabel"
-                    >
+                    <label htmlFor="hamburger" className="mobileNavItemLabel">
                       <Link href={item.path}>{item.title}</Link>
                     </label>
                   </li>

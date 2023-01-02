@@ -9,7 +9,19 @@ import listPlugin from "@fullcalendar/list";
 // utils
 import breakpoint from "./../../utils/breakpoint";
 
-type Props = {};
+type Props = { events: IEvent[] };
+
+interface IEvent {
+  description: string;
+  end: Date;
+  start: Date;
+  title: string;
+  _createdAt: string;
+  _id: string;
+  _rev: string;
+  _type: string;
+  _updatedAt: string;
+}
 
 interface IOverlay {
   title: string;
@@ -23,11 +35,12 @@ export default function Calendar({ events }: Props) {
   const [showOverlay, setShowOverlay] = React.useState(false);
   const [overlayData, setOverlayData] = React.useState<IOverlay>({
     title: "",
-    start: "",
-    end: "",
+    start: new Date(),
+    end: new Date(),
     description: "",
   });
-  const dateOptions = {
+  console.log({ events });
+  const dateOptions: Intl.DateTimeFormatOptions = {
     weekday: "long",
     year: "numeric",
     month: "long",
@@ -35,7 +48,8 @@ export default function Calendar({ events }: Props) {
   };
   const currentBreakpoint = breakpoint();
 
-  const openOverlay = (info) => {
+  const openOverlay = (info: any) => {
+    console.log(info);
     setShowOverlay(true);
     setOverlayData({
       title: info.event.title,
@@ -116,7 +130,9 @@ export default function Calendar({ events }: Props) {
             <h3>{overlayData.title}</h3>
             <div>
               Datum:{" "}
-              {overlayData.start.toLocaleDateString("de-DE", dateOptions)}
+              {new Intl.DateTimeFormat("de-DE", dateOptions).format(
+                overlayData.start
+              )}
             </div>
             <div>
               Uhrzeit:{" "}
