@@ -2,7 +2,7 @@ import sanityClient from "../../client";
 import useSWR from "swr";
 import groq from "groq";
 
-import Navi from './Navi/Navi.tsx'
+import Navi from "./Navi/Navi";
 // import Footer from './footer'
 
 export default function Layout({ children }) {
