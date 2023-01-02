@@ -31,7 +31,7 @@ export default function Navi({ naviItems }: Props) {
       <section className="logoRow">
         <Image
           alt="Wappen des NV Bodemännle"
-          src={"/Wappen.png"}
+          src={"/wappen.png"}
           width={100}
           height={60}
         />
