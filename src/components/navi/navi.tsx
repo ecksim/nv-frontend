@@ -7,7 +7,7 @@ import Link from "next/link";
 import HamburgerMenu from "./HamburgerMenu";
 
 // utils
-import breakpoint from "./../../utils/breakpoint";
+import breakpoint from "../../utils/breakpoint";
 
 type Props = { naviItems: naviItem[] };
 
