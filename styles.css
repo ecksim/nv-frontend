@@ -337,4 +337,14 @@ ul.mainNavigationList > li a:active {
     font-size: 90%;
     display: flex;
   }
+
+  .mainNavigation h1 {
+    width: 200px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .logoRow {
+    margin: 0;
+  }
 }

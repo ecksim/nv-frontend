@@ -8,7 +8,7 @@ import Image from "next/image";
 const Wrapper = styled.section`
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 310px;
 `;
 
 type Props = {};
