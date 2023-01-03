@@ -29,12 +29,14 @@ export default function Navi({ naviItems }: Props) {
         <HamburgerMenu navItems={sortedNavi} />
       )}
       <section className="logoRow">
-        <Image
-          alt="Wappen des NV Bodemännle"
-          src={"/wappen.png"}
-          width={100}
-          height={60}
-        />
+        <Link href={"/"}>
+          <Image
+            alt="Wappen des NV Bodemännle"
+            src={"/wappen.png"}
+            width={100}
+            height={60}
+          />
+        </Link>
         <h1>Narrenverein Bodemännle</h1>
       </section>
       {currentBreakpoint !== "isMobile" && navigationItems}

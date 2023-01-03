@@ -209,7 +209,7 @@ li {
   text-align: center;
 }
 
-.mobileNavItem a {
+.mobileNavItem label {
   text-decoration: none;
   color: rgb(7, 86, 4);
 }
@@ -219,9 +219,21 @@ li {
   padding: 1rem 2rem;
   background-color: rgb(81, 247, 251, 0.4);
   transform: skewX(-10deg);
+  margin-bottom: 1.5rem;
+  border-radius: 2px;
 }
 
-.mobileNavItem a {
+.mobileNavItem:active {
+  background-color: rgb(7, 86, 4, 0.5);
+}
+
+.mobileNavItem li {
+  padding: 0;
+  background-color: rgb(0, 0, 0, 0);
+  margin: 0;
+}
+
+.mobileNavItem label {
   display: inline-block;
   transform: skewX(10deg);
 }
@@ -230,7 +242,7 @@ li {
   transform: skewX(10deg);
 }
 
-.mobileNavItem:nth-of-type(2n + 1) a {
+.mobileNavItem:nth-of-type(2n + 1) label {
   display: inline-block;
   transform: skewX(-10deg);
 }
@@ -255,6 +267,16 @@ ul.mainNavigationList > li a {
   text-decoration: none;
   background-color: #51f7fb;
   color: black;
+}
+
+ul.mainNavigationList > li a:hover {
+  background-color: rgb(81, 247, 251, 0.8);
+  color: white;
+}
+
+ul.mainNavigationList > li a:active {
+  background-color: rgb(81, 247, 251, 0.6);
+  color: white;
 }
 
 .headline {
@@ -314,5 +336,15 @@ ul.mainNavigationList > li a {
     margin-top: 1rem;
     font-size: 90%;
     display: flex;
+  }
+
+  .mainNavigation h1 {
+    width: 200px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .logoRow {
+    margin: 0;
   }
 }
