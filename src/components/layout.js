@@ -3,7 +3,7 @@ import useSWR from "swr";
 import groq from "groq";
 
 import Navi from "./Navi/Navi";
-// import Footer from './footer'
+import Footer from './Footer/Footer'
 
 export default function Layout({ children }) {
     const { data: navData, error } = useSWR(groq`*[_type == "NaviEntry"]`, query =>
@@ -18,7 +18,7 @@ export default function Layout({ children }) {
         <>
             <Navi naviItems={navData} />
             <main>{children}</main>
-            {/* <Footer /> */}
+            <Footer />
         </>
     )
 }

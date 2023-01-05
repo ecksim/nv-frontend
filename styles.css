@@ -1,5 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@400;600&display=swap");
 
+html {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  padding-bottom: 80px;
+}
+
 body {
   font-family: Inter, sans-serif;
   background-color: #f1f3f6;
@@ -64,6 +70,11 @@ li {
 
 .mainNavigation {
   background-color: rgb(7, 86, 4);
+  background: linear-gradient(45deg, transparent 4vw, rgb(7, 86, 4) 4vw),
+    linear-gradient(-45deg, transparent 2vw, rgb(7, 86, 4, 0.5) 2vw),
+    linear-gradient(45deg, transparent 1.8vw, lightgray 1.8vw),
+    linear-gradient(-45deg, transparent 1.8vw, white 1.8vw);
+  background-size: 1vw calc(100% + 1.5vw);
 }
 
 .mainNavigation h1 {
@@ -347,4 +358,30 @@ ul.mainNavigationList > li a:active {
   .logoRow {
     margin: 0;
   }
+}
+
+.footer {
+  height: 80px;
+  padding: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(7, 86, 4);
+  background: linear-gradient(225deg, transparent 3vw, rgb(7, 86, 4) 3vw),
+    linear-gradient(135deg, transparent 2vw, rgb(7, 86, 4, 0.5) 2vw),
+    linear-gradient(225deg, transparent 1.8vw, lightgray 1.8vw),
+    linear-gradient(135deg, transparent 1.8vw, white 1.8vw);
+  background-size: 1vw calc(100% + 1.5vw);
+}
+
+.footerLinks {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.footerLinks a {
+  text-decoration: none;
+  color: white;
 }
