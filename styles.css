@@ -1,5 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@400;600&display=swap");
 
+/* boiler */
+html {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  padding-bottom: 80px;
+  z-index: 0;
+}
+
 body {
   font-family: Inter, sans-serif;
   background-color: #f1f3f6;
@@ -26,9 +34,11 @@ h2 {
 }
 
 main {
-  max-width: 60rem;
-  margin: 2rem auto;
+  /* max-width: 60rem;
+  margin: 2rem auto; */
   padding: 0 1rem;
+  z-index: -11;
+  min-height: calc(100vh - 289px);
 }
 
 main > p {
@@ -62,8 +72,18 @@ li {
   font-weight: 600;
 }
 
+/* custom */
+/* navigartion */
 .mainNavigation {
+  overflow: hidden;
+  z-index: -10;
+  position: relative;
   background-color: rgb(7, 86, 4);
+  background: linear-gradient(45deg, transparent 4vw, rgb(7, 86, 4) 4vw),
+    linear-gradient(-45deg, transparent 2vw, rgb(7, 86, 4, 0.5) 2vw),
+    linear-gradient(45deg, transparent 1.8vw, lightgray 1.8vw),
+    linear-gradient(-45deg, transparent 1.8vw, white 1.8vw);
+  background-size: 1vw calc(100% + 1.5vw);
 }
 
 .mainNavigation h1 {
@@ -74,6 +94,86 @@ li {
   margin: 12px;
 }
 
+.logoRow {
+  margin: 0 0 20px 0;
+}
+
+ul.mainNavigationList > li {
+  position: relative;
+  z-index: 10;
+  display: inline-block;
+  padding: 0 10px;
+  background-color: transparent;
+}
+
+ul.mainNavigationList > li:first-of-type {
+  padding-left: 0;
+}
+
+ul.mainNavigationList > li a {
+  padding: 10px;
+  border-radius: 2px;
+  text-decoration: none;
+  background-color: #51f7fb;
+  color: black;
+}
+
+ul.mainNavigationList > li a:hover {
+  background-color: rgb(81, 247, 251, 0.8);
+  color: white;
+}
+
+ul.mainNavigationList > li a:active {
+  background-color: rgb(81, 247, 251, 0.6);
+  color: white;
+}
+
+/* Navi x Content */
+body,
+.mainWrapper,
+#__next {
+  z-index: -20;
+  position: relative;
+}
+
+.wholeClub {
+  display: inline;
+  position: absolute;
+  right: -75px;
+  top: 200px;
+  width: 700px;
+  height: auto !important;
+  z-index: -2;
+}
+
+.reveal {
+  position: relative;
+  transform: translateY(150px);
+  opacity: 0;
+  transition: 1s all ease;
+  /* top: -140px !important; */
+}
+
+.reveal.active {
+  transform: translateY(0);
+  opacity: 0.85;
+}
+
+.main {
+  background-color: rgb(241, 243, 246);
+  position: relative;
+  top: -23px;
+  padding: 1.5rem 1rem;
+  margin-top: 32px;
+}
+
+.mainMainWrapper {
+  max-width: 60rem;
+  margin: 2rem auto;
+  padding: 2.5rem 1rem;
+}
+
+/* only when mobile breakpoint is active */
 .mainNavigation .hamburger {
   width: 2.5rem;
   height: 2.5rem;
@@ -94,8 +194,8 @@ li {
   transition: transform 0.5s;
 }
 
+/* Fylout Navi mobile */
 /* TODO make this animation more readable */
-
 .menuAnimation-enter {
   opacity: 0;
 }
@@ -247,38 +347,7 @@ li {
   transform: skewX(-10deg);
 }
 
-.logoRow {
-  margin: 0 0 20px 0;
-}
-
-ul.mainNavigationList > li {
-  display: inline-block;
-  padding: 0 10px;
-  background-color: transparent;
-}
-
-ul.mainNavigationList > li:first-of-type {
-  padding-left: 0;
-}
-
-ul.mainNavigationList > li a {
-  padding: 10px;
-  border-radius: 2px;
-  text-decoration: none;
-  background-color: #51f7fb;
-  color: black;
-}
-
-ul.mainNavigationList > li a:hover {
-  background-color: rgb(81, 247, 251, 0.8);
-  color: white;
-}
-
-ul.mainNavigationList > li a:active {
-  background-color: rgb(81, 247, 251, 0.6);
-  color: white;
-}
-
+/* Content */
 .headline {
   font-size: x-large;
   margin-bottom: 2rem;
@@ -289,6 +358,7 @@ ul.mainNavigationList > li a:active {
   grid-template-columns: 1fr 1fr 1fr;
   margin: 0;
 }
+
 .imageGrid .image404 {
   grid-column: 2;
   width: 100%;
@@ -326,6 +396,7 @@ ul.mainNavigationList > li a:active {
   cursor: pointer;
 }
 
+/* mobile */
 @media (max-width: 576px) {
   .fc-header-toolbar {
     display: flex;
@@ -347,4 +418,36 @@ ul.mainNavigationList > li a:active {
   .logoRow {
     margin: 0;
   }
+
+  .wholeClub {
+    opacity: 0.5;
+    top: 20px;
+    right: -100px;
+  }
+}
+
+.footer {
+  height: 80px;
+  padding: 1rem;
+  position: absolute;
+  /* bottom: 0; */
+  left: 0;
+  right: 0;
+  background-color: rgb(7, 86, 4);
+  background: linear-gradient(225deg, transparent 3vw, rgb(7, 86, 4) 3vw),
+    linear-gradient(135deg, transparent 2vw, rgb(7, 86, 4, 0.5) 2vw),
+    linear-gradient(225deg, transparent 1.8vw, lightgray 1.8vw),
+    linear-gradient(135deg, transparent 1.8vw, white 1.8vw);
+  background-size: 1vw calc(100% + 1.5vw);
+}
+
+.footerLinks {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.footerLinks a {
+  text-decoration: none;
+  color: white;
 }

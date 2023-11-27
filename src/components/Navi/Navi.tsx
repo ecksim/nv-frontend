@@ -12,8 +12,23 @@ import breakpoint from "../../utils/breakpoint";
 type Props = { naviItems: naviItem[] };
 
 export default function Navi({ naviItems }: Props) {
+  const [scrolled, setScrolled] = React.useState(false);
   const sortedNavi = naviItems.sort((a, b) => a.position - b.position);
   const currentBreakpoint = breakpoint();
+
+  React.useEffect(() => {
+    const wholeClubImg = document.getElementById("wholeClubId");
+    const width = wholeClubImg?.getBoundingClientRect().width;
+    if (wholeClubImg && scrolled) {
+      setTimeout(
+        () => (
+          (wholeClubImg.style.top = "-60px"),
+          (wholeClubImg.style.transition = "top 1s")
+        )
+      );
+    }
+  }, [scrolled]);
+
   const navigationItems = (
     <ul className="mainNavigationList">
       {sortedNavi.map((item) => (
@@ -23,6 +38,24 @@ export default function Navi({ naviItems }: Props) {
       ))}
     </ul>
   );
+
+  function reveal() {
+    const reveals = document.querySelectorAll(".reveal");
+    setScrolled(true);
+    for (var i = 0; i < reveals.length; i++) {
+      var windowHeight = window.innerHeight;
+      var elementTop = reveals[i].getBoundingClientRect().top;
+      var elementVisible = 150;
+
+      if (elementTop < windowHeight - elementVisible) {
+        reveals[i].classList.add("active");
+      } else {
+        reveals[i].classList.remove("active");
+      }
+    }
+  }
+
+  window.addEventListener("scroll", reveal);
   return (
     <header className="mainNavigation">
       {currentBreakpoint === "isMobile" && (
@@ -40,6 +73,12 @@ export default function Navi({ naviItems }: Props) {
         <h1>Narrenverein Bodemännle</h1>
       </section>
       {currentBreakpoint !== "isMobile" && navigationItems}
+      <img
+        alt="Gruppenbild der Bodemännle"
+        src="/gruppenbild-mit-fell.png"
+        className="wholeClub"
+        id="wholeClubId"
+      />
     </header>
   );
 }
