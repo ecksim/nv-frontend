@@ -1,5 +1,6 @@
 import React from "react";
 import key from "weak-key";
+import { useRouter } from "next/router";
 
 // components
 import Image from "next/image";
@@ -15,6 +16,7 @@ export default function Navi({ naviItems }: Props) {
   const [scrolled, setScrolled] = React.useState(false);
   const sortedNavi = naviItems.sort((a, b) => a.position - b.position);
   const currentBreakpoint = breakpoint();
+  const router = useRouter();
 
   React.useEffect(() => {
     const wholeClubImg = document.getElementById("wholeClubId");
@@ -31,11 +33,24 @@ export default function Navi({ naviItems }: Props) {
 
   const navigationItems = (
     <ul className="mainNavigationList">
-      {sortedNavi.map((item) => (
-        <li key={key(item)}>
-          <Link href={item.path}>{item.title}</Link>
-        </li>
-      ))}
+      {sortedNavi.map((item) => {
+        let style = {};
+
+        if (router.asPath === item.path) {
+          style = {
+            boxShadow: "0px 0px 30px white",
+            border: "2px solid white",
+            backgroundColor: "#00f9ff",
+          };
+        }
+        return (
+          <li key={key(item)}>
+            <Link href={item.path} style={style}>
+              {item.title}
+            </Link>
+          </li>
+        );
+      })}
     </ul>
   );
 

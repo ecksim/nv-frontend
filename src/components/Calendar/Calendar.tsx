@@ -39,7 +39,7 @@ export default function Calendar({ events }: Props) {
     end: new Date(),
     description: "",
   });
-  console.log({ events });
+
   const dateOptions: Intl.DateTimeFormatOptions = {
     weekday: "long",
     year: "numeric",
@@ -49,7 +49,6 @@ export default function Calendar({ events }: Props) {
   const currentBreakpoint = breakpoint();
 
   const openOverlay = (info: any) => {
-    console.log(info);
     setShowOverlay(true);
     setOverlayData({
       title: info.event.title,
@@ -57,7 +56,6 @@ export default function Calendar({ events }: Props) {
       end: info.event.end,
       description: info.event.extendedProps.description,
     });
-    console.log(info);
   };
 
   return (

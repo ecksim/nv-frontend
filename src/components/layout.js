@@ -83,7 +83,7 @@ export default function Layout({ children }) {
 
     // TODO error handling + loading
     if (error) return <div>Failed</div>
-    if (!navData) return <div>Loading...</div>;
+    if (!navData) return <div className='loadingScreen'></div>;
 
     return (
         <>

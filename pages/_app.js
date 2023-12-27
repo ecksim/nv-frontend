@@ -7,6 +7,7 @@ import "@fullcalendar/daygrid/main.css";
 import "@fullcalendar/list/main.css";
 import "@fullcalendar/timegrid/main.css";
 
+import './globalStyles.css'
 
 export default function MyApp({ Component, pageProps }) {
   return (
