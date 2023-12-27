@@ -14,15 +14,22 @@ export default function ManagementMembers({ overviewPages, management }) {
 
     return <>
         <h1 className="headline">{membersOverview[0].pageTitle}</h1>
-        {management.map(member => {
-            const imgSrc = generateImgSrc(member.image.asset._ref);
+        <section style={{ display: 'flex', gap: '2rem 2rem', flexDirection: 'row', flexWrap: 'wrap' }}>
+            {management.sort((memberA, memberB) => memberA.order - memberB.order).map(member => {
+                console.log({ member })
+                const imgSrc = generateImgSrc(member.image.asset._ref);
 
-            return <>
-                <Image alt={member.position} src={imgSrc} width={200} height={200} unoptimized={true} />
-                <h3>{member.position}</h3>
-                <h4>{member.name}</h4>
-            </>
-        })}
+                return <>
+                    <div style={{ width: '300px' }}>
+                        <Image alt={member.position} src={imgSrc} width={200} height={200} unoptimized={true} style={{ objectFit: 'cover' }} />
+                        <div style={{
+                            fontSize: '1.25rem', fontWeight: 700, margin: '0.5rem auto 0.25rem'
+                        }}>{member.position}</div>
+                        <div>{member.name}</div>
+                    </div>
+                </>
+            })}
+        </section>
     </>;
 }
 
