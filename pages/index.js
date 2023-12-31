@@ -41,6 +41,7 @@ export default function IndexPage({ homeData }) {
               })} <br /></>
             })}
           </p>
+          <br />
           <h2>{homeData[0].headline2}</h2>
           <p>{homeData[0].text2}</p>
         </section>

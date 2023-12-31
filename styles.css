@@ -309,6 +309,12 @@ body,
   text-align: center;
 }
 
+.mobileNavItem.active {
+  box-shadow: 0px 0px 30px rgb(7, 86, 4);
+  border: 2px solid white;
+  background-color: #00f9ff;
+}
+
 .mobileNavItem label {
   text-decoration: none;
   color: rgb(7, 86, 4);
@@ -427,10 +433,11 @@ body,
 }
 
 .footer {
+  display: flex;
+  align-items: flex-end;
   height: 80px;
   padding: 1rem;
   position: absolute;
-  /* bottom: 0; */
   left: 0;
   right: 0;
   background-color: rgb(7, 86, 4);
@@ -441,13 +448,28 @@ body,
   background-size: 1vw calc(100% + 1.5vw);
 }
 
+@media (max-width: 576px) {
+  .footer {
+    height: 50px;
+  }
+}
+
 .footerLinks {
   position: absolute;
-  bottom: 1rem;
   right: 1rem;
 }
 
 .footerLinks a {
   text-decoration: none;
   color: white;
+}
+
+.footerSocial {
+  position: absolute;
+  left: 1rem;
+}
+
+.socialIcon {
+  width: 1.5rem;
+  margin-right: 0.75rem;
 }

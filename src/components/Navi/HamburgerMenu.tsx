@@ -4,12 +4,14 @@ import { CSSTransition } from "react-transition-group";
 
 // components
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 type Props = { navItems: naviItem[] };
 
 export default function HamburgerMenu({ navItems }: Props) {
   const [menuIsOpen, setMenuIsOpen] = React.useState(false);
   const nodeRef = React.useRef(null);
+  const router = useRouter();
 
   return (
     <>
@@ -31,12 +33,18 @@ export default function HamburgerMenu({ navItems }: Props) {
         <div className="overlay" ref={nodeRef}>
           <ul className="mobileNav">
             {navItems.map((item) => {
+              let className;
+              if (router.asPath === item.path) {
+                className = "mobileNavItem active";
+              } else {
+                className = "mobileNavItem";
+              }
               return (
                 <>
                   <Link
                     href={item.path}
                     key={key(item)}
-                    className="mobileNavItem"
+                    className={className}
                     onClick={() => setMenuIsOpen(false)}
                   >
                     <li>
