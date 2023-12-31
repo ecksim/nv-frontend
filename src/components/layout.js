@@ -5,6 +5,8 @@ import * as React from "react";
 
 import Navi from "./Navi/Navi";
 import Footer from './Footer/Footer'
+import { Analytics } from '@vercel/analytics/react';
+
 
 export default function Layout({ children }) {
     const { data: navData, error } = useSWR(groq`*[_type == "NaviEntry"]`, query =>
@@ -92,6 +94,7 @@ export default function Layout({ children }) {
                 <div className="mainMainWrapper">{children}</div>
             </main>
             <Footer />
+            <Analytics />
         </>
     )
 }
