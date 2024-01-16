@@ -1,9 +1,9 @@
 import Link from "next/link";
 import React from "react";
 
-type Props = {};
+type FooterProps = {};
 
-export default function Footer({}: Props) {
+export default function Footer({}: FooterProps) {
   return (
     <footer className="footer">
       <div className="footerSocial">

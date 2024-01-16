@@ -8,6 +8,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import Link from "next/link";
 import HeroImage from "../src/components/HeroImage/HeroImage";
 import { PortableText } from "@portabletext/react";
+import { generateImgSrc } from "../src/utils/generateImgSrc";
 
 export default function IndexPage({ homeData }) {
 
@@ -21,6 +22,8 @@ export default function IndexPage({ homeData }) {
   //     strong: ({ children }) => <em>{children}</em>
   //   }
   // }
+
+  console.log(homeData[0])
 
   return (
     <>
@@ -41,6 +44,7 @@ export default function IndexPage({ homeData }) {
               })} <br /></>
             })}
           </p>
+          <div className="flyer"><img src={generateImgSrc(homeData[0].heroImage.asset._ref)} /></div>
           <br />
           <h2>{homeData[0].headline2}</h2>
           <p>{homeData[0].text2}</p>
