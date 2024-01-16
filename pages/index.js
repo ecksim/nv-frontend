@@ -23,8 +23,6 @@ export default function IndexPage({ homeData }) {
   //   }
   // }
 
-  console.log(homeData[0])
-
   return (
     <>
       <main>
