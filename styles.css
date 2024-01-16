@@ -393,6 +393,7 @@ body,
   border-radius: 4px;
   background-color: white;
   z-index: 12;
+  max-width: 720px;
 }
 
 .overlayXMark {
@@ -400,6 +401,17 @@ body,
   top: 1rem;
   right: 1rem;
   cursor: pointer;
+}
+
+.flyer {
+  max-width: 320px;
+  max-height: 440px;
+  position: relative;
+  margin: auto;
+}
+
+.flyer img {
+  width: 100%;
 }
 
 /* mobile */

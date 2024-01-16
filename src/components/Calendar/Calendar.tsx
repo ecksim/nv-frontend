@@ -9,28 +9,9 @@ import listPlugin from "@fullcalendar/list";
 // utils
 import breakpoint from "./../../utils/breakpoint";
 
-type Props = { events: IEvent[] };
+type CalendarProps = { events: IEvent[] };
 
-interface IEvent {
-  description: string;
-  end: Date;
-  start: Date;
-  title: string;
-  _createdAt: string;
-  _id: string;
-  _rev: string;
-  _type: string;
-  _updatedAt: string;
-}
-
-interface IOverlay {
-  title: string;
-  start: Date;
-  end: Date;
-  description: string;
-}
-
-export default function Calendar({ events }: Props) {
+export default function Calendar({ events }: CalendarProps) {
   //   const calendarRef = useRef(null);
   const [showOverlay, setShowOverlay] = React.useState(false);
   const [overlayData, setOverlayData] = React.useState<IOverlay>({
@@ -49,6 +30,7 @@ export default function Calendar({ events }: Props) {
   const currentBreakpoint = breakpoint();
 
   const openOverlay = (info: any) => {
+    console.log("info-evemt", info.event.extendedProps.description);
     setShowOverlay(true);
     setOverlayData({
       title: info.event.title,
@@ -140,6 +122,11 @@ export default function Calendar({ events }: Props) {
               })}{" "}
               Uhr
             </div>
+            <br />
+            <div>
+              <strong>Beschreibung:</strong>
+            </div>
+            <div>{overlayData.description}</div>
           </span>
         </div>
       )}

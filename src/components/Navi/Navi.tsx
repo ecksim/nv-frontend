@@ -13,7 +13,6 @@ import breakpoint from "../../utils/breakpoint";
 type Props = { naviItems: naviItem[] };
 
 export default function Navi({ naviItems }: Props) {
-  const [scrolled, setScrolled] = React.useState(false);
   const sortedNavi = naviItems.sort((a, b) => a.position - b.position);
   const currentBreakpoint = breakpoint();
   const router = useRouter();
@@ -21,15 +20,16 @@ export default function Navi({ naviItems }: Props) {
   React.useEffect(() => {
     const wholeClubImg = document.getElementById("wholeClubId");
     const width = wholeClubImg?.getBoundingClientRect().width;
-    if (wholeClubImg && scrolled) {
+    if (wholeClubImg) {
       setTimeout(
         () => (
           (wholeClubImg.style.top = "-60px"),
           (wholeClubImg.style.transition = "top 1s")
-        )
+        ),
+        500
       );
     }
-  }, [scrolled]);
+  }, []);
 
   const navigationItems = (
     <ul className="mainNavigationList">
@@ -56,7 +56,6 @@ export default function Navi({ naviItems }: Props) {
 
   function reveal() {
     const reveals = document.querySelectorAll(".reveal");
-    setScrolled(true);
     for (var i = 0; i < reveals.length; i++) {
       var windowHeight = window.innerHeight;
       var elementTop = reveals[i].getBoundingClientRect().top;
@@ -70,7 +69,6 @@ export default function Navi({ naviItems }: Props) {
     }
   }
 
-  window.addEventListener("scroll", reveal);
   return (
     <header className="mainNavigation">
       {currentBreakpoint === "isMobile" && (
