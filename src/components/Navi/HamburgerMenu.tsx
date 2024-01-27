@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState, useRef, useEffect } from "react";
 import key from "weak-key";
 import { CSSTransition } from "react-transition-group";
 
@@ -9,14 +9,29 @@ import { useRouter } from "next/router";
 type Props = { navItems: naviItem[] };
 
 export default function HamburgerMenu({ navItems }: Props) {
-  const [menuIsOpen, setMenuIsOpen] = React.useState(false);
-  const nodeRef = React.useRef(null);
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
+  const [showCircle, setShowCircle] = useState(false);
+  const nodeRef = useRef(null);
   const router = useRouter();
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+      setShowCircle(true);
+    } else {
+      setShowCircle(false);
+    }
+  });
 
   return (
     <>
       <span
+        className={
+          showCircle ? "hamburgerCircleVisible" : "hamburgerCircleHidden"
+        }
+      ></span>
+      <span
         className={`hamburger${menuIsOpen ? " menuIsOpen" : ""}`}
+        style={showCircle ? { position: "fixed" } : { position: "absolute" }}
         onClick={() => setMenuIsOpen(!menuIsOpen)}
       >
         <div className="hamburgerBar"></div>
