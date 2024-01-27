@@ -177,7 +177,6 @@ body,
 .mainNavigation .hamburger {
   width: 2.5rem;
   height: 2.5rem;
-  position: fixed;
   top: 1rem;
   right: 1rem;
   z-index: 11;
@@ -192,6 +191,23 @@ body,
   border-radius: 2px;
   margin: 6px auto;
   transition: transform 0.5s;
+}
+
+.hamburgerCircleVisible {
+  background: rgb(7, 86, 4);
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  position: fixed;
+  border-radius: 50%;
+  right: -111px;
+  top: -107px;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.hamburgerCircleHidden {
+  opacity: 0;
 }
 
 /* Fylout Navi mobile */
