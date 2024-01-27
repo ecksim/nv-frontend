@@ -31,7 +31,11 @@ export default function HamburgerMenu({ navItems }: Props) {
       ></span>
       <span
         className={`hamburger${menuIsOpen ? " menuIsOpen" : ""}`}
-        style={showCircle ? { position: "fixed" } : { position: "absolute" }}
+        style={
+          showCircle || menuIsOpen
+            ? { position: "fixed" }
+            : { position: "absolute" }
+        }
         onClick={() => setMenuIsOpen(!menuIsOpen)}
       >
         <div className="hamburgerBar"></div>
