@@ -9,15 +9,14 @@ export default function ManagementMembers({ overviewPages, management }) {
 
     return <>
         <h1 className="headline">{membersOverview[0].pageTitle}</h1>
-        <section style={{ display: 'flex', gap: '2rem 2rem', flexDirection: 'row', flexWrap: 'wrap' }}>
+        <section style={{ display: 'flex', gap: '2rem 2rem', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
             {management.sort((memberA, memberB) => memberA.order - memberB.order).map(member => {
                 console.log({ member })
                 const imgSrc = generateImgSrc(member.image.asset._ref);
 
                 return <>
-                    <div style={{ width: '300px', position: 'relative' }}>
-                        <span style={{ position: 'absolute', left: '2.5rem', top: '3.5rem', backgroundColor: 'black', fontWeight: '700', color: 'white', padding: '0.25rem' }}>comming soon</span>
-                        <Image alt={member.position} src={imgSrc} width={200} height={200} unoptimized={true} style={{ objectFit: 'cover' }} />
+                    <div style={{ position: 'relative' }}>
+                        <Image alt={member.position} src={imgSrc} width={150} height={200} unoptimized={true} style={{ objectFit: 'cover' }} />
                         <div style={{
                             fontSize: '1.25rem', fontWeight: 700, margin: '0.5rem auto 0.25rem'
                         }}>{member.position}</div>
@@ -25,7 +24,35 @@ export default function ManagementMembers({ overviewPages, management }) {
                     </div>
                 </>
             })}
-        </section>
+        </section >
+        <br />
+        <hr />
+        <br />
+
+        <h2>Beisitzer:</h2>
+        <ul >
+            <li style={{ fontWeight: 500, margin: 0 }}>
+                Steffen Hornstein
+            </li>
+            <li style={{ fontWeight: 500, margin: 0 }}>
+                Ronny Preuß
+            </li>
+            <li style={{ fontWeight: 500, margin: 0 }}>
+                Steffanie Rinderle
+            </li>
+            <li style={{ fontWeight: 500, margin: 0 }}>
+                Manuel Nadler
+            </li>
+            <li style={{ fontWeight: 500, margin: 0 }}>
+                Bastian Preuß
+            </li>
+            <li style={{ fontWeight: 500, margin: 0 }}>
+                Saskia Baiker
+            </li>
+            <li style={{ fontWeight: 500, margin: 0 }}>
+                Simon Eilmus
+            </li>
+        </ul>
     </>;
 }
 
