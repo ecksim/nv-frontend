@@ -6,7 +6,7 @@ export default function Document() {
             <Head>
                 <link rel="shortcut icon" href="/favicon.png" />
                 <title>Bodemännle Hattenweiler</title>
-                <meta property="description" content="Die Webseite des Narrenverein Bodemännle Hattenweiler. Aktuelle Neuigkeiten, Termine und Kontaktinformationen" />
+                <meta name="description" content="Die Webseite des Narrenverein Bodemännle Hattenweiler. Aktuelle Neuigkeiten, Termine und Kontaktinformationen" />
             </Head>
             <body>
                 <section className='mainWrapper'>
