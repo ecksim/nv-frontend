@@ -23,7 +23,7 @@ export default function Navi({ naviItems }: Props) {
     if (wholeClubImg) {
       setTimeout(
         () => (
-          (wholeClubImg.style.top = "-60px"),
+          (wholeClubImg.style.top = "-45px"),
           (wholeClubImg.style.transition = "top 1s")
         ),
         500
@@ -91,6 +91,7 @@ export default function Navi({ naviItems }: Props) {
         src="/gruppenbild-mit-fell.png"
         className="wholeClub"
         id="wholeClubId"
+        width={200}
       />
     </header>
   );

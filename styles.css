@@ -139,9 +139,9 @@ body,
 .wholeClub {
   display: inline;
   position: absolute;
-  right: -75px;
+  right: -45px;
   top: 200px;
-  width: 700px;
+  width: 630px;
   height: auto !important;
   z-index: -2;
 }
@@ -456,7 +456,8 @@ body,
   .wholeClub {
     opacity: 0.5;
     top: 20px;
-    right: -100px;
+    right: -60px;
+    width: 600px;
   }
 }
 
