@@ -42,7 +42,9 @@ export default function IndexPage({ homeData }) {
               })} <br /></>
             })}
           </p>
-          <div className="flyer"><img src={generateImgSrc(homeData[0].heroImage.asset._ref)} /></div>
+          {homeData[0].heroImage &&
+            <div className="flyer"><img src={generateImgSrc(homeData[0].heroImage.asset._ref)} /></div>
+          }
           <br />
           <h2>{homeData[0].headline2}</h2>
           <p>{homeData[0].text2}</p>
