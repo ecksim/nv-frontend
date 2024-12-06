@@ -9,6 +9,7 @@ export default function EventsOverview({ overviewPages, events }) {
     return <>
         <h1 className="headline">{eventsOverview[0].pageTitle}</h1>
         <p>{eventsOverview[0].pageDescription}</p>
+        <p>🆕 Termine via iCal in Kalender importieren ➡️ <a href="https://bodemaennle.de/Termine-Bodemaennle.ics">Hier klicken</a></p>
         <Calendar events={events} />
     </>;
 }
