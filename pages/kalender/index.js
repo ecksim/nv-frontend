@@ -1,6 +1,7 @@
 import sanityClient from "../../client";
 
 import Calendar from "../../src/components/Calendar/Calendar";
+import Button from './../../src/components/Button/button';
 
 
 export default function EventsOverview({ overviewPages, events }) {
@@ -9,8 +10,9 @@ export default function EventsOverview({ overviewPages, events }) {
     return <>
         <h1 className="headline">{eventsOverview[0].pageTitle}</h1>
         <p>{eventsOverview[0].pageDescription}</p>
-        <p>🆕 Termine via iCal in Kalender importieren ➡️ <a href="https://bodemaennle.de/Termine-Bodemaennle.ics">Hier klicken</a></p>
+        <p>🆕 Termine via iCal in Kalender importieren <Button href="https://bodemaennle.de/Termine-Bodemaennle.ics" hasArrow={true} type="primary">Hier klicken</Button></p>
         <Calendar events={events} />
+
     </>;
 }
 
