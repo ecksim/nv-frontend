@@ -1,17 +1,19 @@
 import React from "react";
 
 export default function Button({
+  target,
+  type = "primary",
   hasArrow,
   children,
-  type,
 }: {
-  hasArrow: boolean;
-  children: React.ReactNode;
+  target: string;
   type: "primary" | "secondary";
+  hasArrow?: boolean;
+  children: React.ReactNode;
 }) {
   return (
-    <button className={`${type} ${hasArrow ? "hasArrow" : ""}`}>
+    <a href={target} className={`button ${type} ${hasArrow ? "hasArrow" : ""}`}>
       {children}
-    </button>
+    </a>
   );
 }
