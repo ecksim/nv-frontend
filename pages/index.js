@@ -6,28 +6,20 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 
 // components
 import Link from "next/link";
-import HeroImage from "../src/components/HeroImage/HeroImage";
+import { HeroImageDesktop } from "../src/components/HeroImage/HeroImageDesktop";
+import { HeroImageMobile } from "../src/components/HeroImage/HeroImageMobile";
 import { PortableText } from "@portabletext/react";
 import { generateImgSrc } from "../src/utils/generateImgSrc";
+import breakpoint from './../src/utils/breakpoint';
 
 export default function IndexPage({ homeData }) {
-
-  // const components = {
-  //   types: {
-  //     block: ({ children }) => <div>{children}</div>,
-  //     span: ({ children }) => <span>{children}</span>,
-  //     undefined: ({ children }) => <span>{children}</span>
-  //   },
-  //   marks: {
-  //     strong: ({ children }) => <em>{children}</em>
-  //   }
-  // }
+  const currentBreakpoint = breakpoint();
 
   return (
     <>
       <main>
         <h1 className="headline">{homeData[0].headline}</h1>
-        <HeroImage></HeroImage>
+        {['isMobile', 'isTablet'].includes(currentBreakpoint) ? <HeroImageMobile /> : <HeroImageDesktop />}
         <section>
           {/* <PortableText value={[homeData[0].text1[0].children]} components={components} /> */}
           <p>
