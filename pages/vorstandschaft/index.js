@@ -50,7 +50,7 @@ export default function ManagementMembers({ overviewPages, management }) {
                 Saskia Baiker
             </li>
             <li style={{ fontWeight: 500, margin: 0 }}>
-                Simon Eilmus
+                Anja Wiedmann
             </li>
         </ul>
     </>;
